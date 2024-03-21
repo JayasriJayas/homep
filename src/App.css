@@ -190,7 +190,7 @@ nav ul li:hover a::after {
 .timer h1 {
   font-size: 5vw;
   text-transform: uppercase;
-  color: #fff;
+  color: #ff0095e8;
   margin-bottom: 1vw;
 }
 
@@ -253,10 +253,22 @@ nav ul li:hover a::after {
   margin-top: 30px;
    /* Adjust the margin-top value to create the desired gap */
 }
+/* Add this CSS to your stylesheet */
+.glow {
+  color: #fff; /* Set the color to white */
+  text-shadow: 0 0 10px #fff, 
+               0 0 20px #fff, 
+               0 0 30px #fff, 
+               0 0 40px #fff, 
+               0 0 50px #fff, 
+               0 0 60px #fff, 
+               0 0 70px #fff; /* Apply the white glow effect */
+}
+
 
 @media screen and (max-width: 768px) {
   .header-menu {
-    display: none; /* Hide the menu by default on small screens */
+    display:none;
     flex-direction: column; /* Stack menu items vertically */
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the menu */
     position: absolute;
@@ -276,13 +288,19 @@ nav ul li:hover a::after {
     margin-top: 20px; /* Adjusted margin-top for smaller screens */
   }
 
-
-  .header-menu li {
-    margin-bottom: 2vw; /* Responsive margin */
+  .header-menu.active {
+    display: flex; /* Show the menu when active */
   }
 
   .menu-icon {
     display: block; /* Display the menu icon on small screens */
+  }
+
+
+
+
+  .header-menu li {
+    margin-bottom: 2vw; /* Responsive margin */
   }
 
   /* Styles for the menu icon when glowing */
@@ -306,7 +324,7 @@ nav ul li:hover a::after {
   position: relative;
   animation: bounce 0.5s infinite alternate;
   perspective: 1000px;
-  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff; /* Apply white glow effect */
+  text-shadow: 0 0 10px #ffff, 0 0 20px #ffff, 0 0 30px #ffff;/* Apply white glow effect */
 }
 
 .jelly:hover {
@@ -348,18 +366,30 @@ nav ul li:hover a::after {
 */
 .clock {
   position: relative;
-  margin: a;
+  margin: auto; /* Adjusted margin */
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
-  width: 400px;
-  color: #ff16ec;
-  text-shadow: 1px 1px 7px;
+  background: rgba(0, 0, 0, 0.726);
+  width: 450px;
+  color: #ffff;
+  text-shadow: 0 0 10px #fff, 
+               0 0 20px #fff, 
+               0 0 30px #fff, 
+               0 0 40px #fff;
+  /*text-shadow: 0 0 10px #ffff, /* Apply the glow effect 
+               0 0 20px #ffff, 
+               0 0 30px #ffff;*/
+  border: 5px solid black;
+      
+               
+              
+               
   border-radius: 15px;
-  border: 2px solid silver;
-  box-shadow: 0 0 4px 15px;
+  
+ 
 }
+
 
 .clock section {
   display: flex;
@@ -398,7 +428,7 @@ nav ul li:hover a::after {
 }
 
 .App-link {
-  color: #fb61cd;
+  color: #f74cc6;
 }
 
 @keyframes App-logo-spin {

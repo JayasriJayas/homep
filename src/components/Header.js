@@ -1,11 +1,13 @@
+import '../App.css';
 import React, { useState } from 'react';
+import { FaBars,FaTimes } from 'react-icons/fa';
 import Logo2020white2 from '../img/Logo2020white2.png';
 
 const Header = () => {
-    const [menuActive, setMenuActive] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
-        setMenuActive(!menuActive);
+        setIsOpen(!isOpen);
     };
 
     return (
@@ -15,20 +17,21 @@ const Header = () => {
                 <span className="logo-name">Cognoblaze</span>
             </div>
             <nav className="header-nav">
-                <ul className={menuActive ? "header-menu active" : "header-menu"}>
-                    <li><a href="#">home</a></li>
-                    <li><a href="#">event</a></li>
+                {/* Menu Icon */}
+                <div className="menu-icon" onClick={toggleMenu}>
+                {isOpen ? <FaTimes className="glow" /> : <FaBars className="glow" />}
+                </div>
+                {/* Header Menu */}
+                <ul className={`header-menu ${isOpen ? 'active' : ''}`}>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Event</a></li>
                     <li><a href="#">Registration</a></li>
                     <li><a href="#">Winners</a></li>
-                    <li><a href="#">About us</a></li>
+                    <li><a href="#">About Us</a></li>
                 </ul>
-                <div className="menu-icon" onClick={toggleMenu}>
-                    <i className="fas fa-bars"></i>
-                </div>
             </nav>
         </div>
     );
 };
 
 export default Header;
-
