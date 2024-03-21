@@ -1,7 +1,380 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  width: 100%;
+  height: 100vh;
+  background: #000813;
+  position: relative;
+  overflow-x: hidden; /* Prevents horizontal scrollbar */
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 1000; 
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo,
+.header-nav {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  text-transform: uppercase;
+  font-size: 20px; /* Adjusted font size */
+  margin-left: 20px; /* Add margin to the left */
+}
+
+.logo img {
+  width: 40px; /* Adjusted logo width */
+  height: auto;
+  margin-right: 10px;
+}
+
+.logo-name,
+nav ul li a {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 70px #fff, 0 0 80px #fff, 0 0 100px #fff, 0 0 150px #fff;
+  color: #fff;
+  font-size: 18px; /* Adjusted font size */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin-right: 20px; /* Add margin to the right */
+}
+
+nav ul li {
+  margin-left: 20px; /* Add margin between menu items */
+}
+
+nav ul li a {
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 18px; /* Adjusted font size */
+  font-weight: 400;
+  padding: 10px 20px; /* Adjust padding */
+  position: relative;
+  user-select: none;
+}
+
+nav ul li a::before,
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  transition: 0.3s;
+}
+
+nav ul li a::before {
+  top: 0;
+  left: 0;
+}
+
+nav ul li a::after {
+  bottom: 0;
+  right: 0;
+}
+
+nav ul li:hover a::before,
+nav ul li:hover a::after {
+  width: 110%;
+  height: 105%;
+  border: 3px solid #fff;
+}
+
+/* Media Queries for Responsive Design */
+
+@media screen and (max-width: 768px) {
+  .header {
+      padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+  .logo {
+      margin-left: 0; /* Remove margin */
+  }
+
+  nav ul {
+      position: absolute;
+      top: 100%; /* Move menu below the logo */
+      right: 0;
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      flex-direction: column;
+      display: none; /* Hide the menu by default */
+      width: 100%;
+      text-align: center;
+  }
+
+  nav ul.active {
+      display: flex; /* Show the menu when active */
+  }
+
+  nav ul li {
+      margin: 10px 0; /* Adjust margin for smaller screens */
+  }
+
+  nav ul li a {
+      padding: 10px; /* Adjust padding for smaller screens */
+  }
+
+
+
+  .logo {
+      position: static; /* Remove absolute positioning */
+      text-align: center;
+      margin-left: 0; /* Remove margin */
+  }
+}
+.box {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Ensure the video stays behind other content */
+}
+
+.timer-container {
+  position: absolute;
+  bottom: 20px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+  max-width: 100%;
+  margin-top: 10px; 
+  padding-bottom: 20px;
+}
+
+
+
+.timer {
+  font-family: "Roboto", sans-serif;
+  padding: 2vw;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom:55px;/* Adjusted margin-top for moving the timer section up */
+
+}
+
+.timer h1 {
+  font-size: 5vw;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 1vw;
+}
+
+.timer h2 {
+  font-size: 3vw;
+  text-transform: uppercase;
+  text-align:center;
+  color: #fff;
+  margin-bottom: 0.5vw;
+}
+
+.timer h3 {
+  font-size: 2vw;
+  color: #fff;
+  margin-bottom: 0.5vw;
+}
+
+.timer input[type="submit"] {
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 25px;
+  width: 140px;
+    background: #ff0f5b;
+    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.1), inset -2px -5px 10px rgba(255, 255, 255, 1),
+        15px 15px 10px rgba(0, 0, 0, 0.05), 15px 10px 15px rgba(0, 0, 0, 0.025);
+    transition: 0.5s;
+}
+.timer input[type="submit"]:hover{
+  width:170px;
+}
+.timer-heading {
+  text-align: center; /* Center align the headings */
+  margin-bottom: 20px;
+  margin: 0 auto; /* Center the headings independently of container width */
+  max-width: 80%; /* Adjust the maximum width */
+  line-height: 1.5; /* Increase line height for better readability */
+}
+
+.timer h1,
+.timer h2,
+.timer h3 {
+  text-align: center; /* Center align the headings */
+  display: inline-block; /* Make headings behave like inline blocks */
+  margin: 0 auto; /* Center the headings independently of container size */
+}
+
+
+/* Styles for the menu icon */
+.menu-icon {
+  display: none; /* Initially hide the menu icon */
+  cursor: pointer;
+  margin-right: 2vw; /* Responsive margin */
+}
+.register-button {
+  margin-top: 30px;
+   /* Adjust the margin-top value to create the desired gap */
+}
+
+@media screen and (max-width: 768px) {
+  .header-menu {
+    display: none; /* Hide the menu by default on small screens */
+    flex-direction: column; /* Stack menu items vertically */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the menu */
+    position: absolute;
+    top: 100%; /* Position below the header */
+    right: 0;
+    z-index: 1000; /* Ensure menu is on top */
+    width: auto;
+    padding: 2vw; /* Responsive padding */
+  }
+   
+  .timer {
+    margin-bottom:55px; /* Adjusted margin-top for smaller screens */
+  }
+
+  .timer-container {
+    bottom: 50px; /* Adjusted position for smaller screens */
+    margin-top: 20px; /* Adjusted margin-top for smaller screens */
+  }
+
+
+  .header-menu li {
+    margin-bottom: 2vw; /* Responsive margin */
+  }
+
+  .menu-icon {
+    display: block; /* Display the menu icon on small screens */
+  }
+
+  /* Styles for the menu icon when glowing */
+  .menu-icon i {
+    color: #fff; /* Set the color to white */
+    animation: glow 1.5s infinite alternate; /* Apply the glow animation */
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 1.5vw #fff, 0 0 3vw #fff, 0 0 4.5vw #fff, 0 0 6vw #fff, 0 0 10.5vw #fff, 0 0 12vw #fff, 0 0 15vw #fff, 0 0 22.5vw #fff; /* Responsive text shadow */
+  }
+  to {
+    text-shadow: 0 0 3vw #fff, 0 0 4.5vw #fff, 0 0 6vw #fff, 0 0 7.5vw #fff, 0 0; /* Responsive text shadow */
+  }
+}
+
+.jelly {
+  font-size: 3vw; /* Relative font size */
+  position: relative;
+  animation: bounce 0.5s infinite alternate;
+  perspective: 1000px;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 60px #fff, 0 0 70px #fff; /* Apply white glow effect */
+}
+
+.jelly:hover {
+  animation: none; /* Stop the bounce effect on hover */
+  color: #ff0095e8; /* Change text color when hovered */
+}
+
+.jelly span {
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s, transform 0.5s;
+}
+
+.jelly span:hover {
+  color: #a70ad6; /* Change individual letter color when hovered */
+  transform: rotateX(360deg); /* Add a 3D rotation effect on hover */
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1vw); /* Relative animation distance */
+  }
+}
+
+
+
+/*.App {
+  text-align: center;
+  height: 100vh;
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+*/
+.clock {
+  position: relative;
+  margin: a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  width: 400px;
+  color: #ff16ec;
+  text-shadow: 1px 1px 7px;
+  border-radius: 15px;
+  border: 2px solid silver;
+  box-shadow: 0 0 4px 15px;
+}
+
+.clock section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.clock section p {
+  font-size: 4rem;
+}
+.clock section small {
+  color: silver;
+  text-shadow: none;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -25,7 +398,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #fb61cd;
 }
 
 @keyframes App-logo-spin {
